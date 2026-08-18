@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #010211;
+  --surface: #0e111a;
+  --surface-2: #12151f;
+  --surface-3: #161a26;
+  --border-c: rgba(255, 255, 255, 0.08);
+  --border-soft: rgba(255, 255, 255, 0.05);
+  --border-hover: rgba(255, 255, 255, 0.2);
+  --text: #eef0f5;
+  --text-muted: #8b93a1;
+  --text-dim: #565d6b;
+  --blue: #4d7fff;
+  --blue-soft: rgba(77, 127, 255, 0.12);
+  --violet: #8b5cf6;
+  --violet-soft: rgba(139, 92, 246, 0.12);
+  --green: #22c55e;
+  --green-soft: rgba(34, 197, 94, 0.12);
+  --teal: #2dd4bf;
+  --teal-soft: rgba(45, 212, 191, 0.12);
+  --amber: #f5a623;
+  --media-surface: #0e111a;
+}
+
+[data-theme="light"] {
+  --bg: #f7f8fb;
+  --surface: #ffffff;
+  --surface-2: #f0f1f5;
+  --surface-3: #e7e9ef;
+  --border-c: rgba(15, 18, 30, 0.1);
+  --border-soft: rgba(15, 18, 30, 0.06);
+  --border-hover: rgba(15, 18, 30, 0.22);
+  --text: #14161f;
+  --text-muted: #565d6c;
+  --text-dim: #8a8f9c;
+  --blue: #3763e0;
+  --blue-soft: rgba(55, 99, 224, 0.1);
+  --violet: #7c4fe0;
+  --violet-soft: rgba(124, 79, 224, 0.1);
+  --green: #16a34a;
+  --green-soft: rgba(22, 163, 74, 0.1);
+  --teal: #0d9488;
+  --teal-soft: rgba(13, 148, 136, 0.1);
+  --amber: #d97706;
+  /* Media panels (hero portrait, about portrait, contact graphic, globe)
+     were composited against the dark background specifically and would
+     show visible edges on white — they intentionally keep a dark frame
+     in both themes rather than break that blend. */
+  --media-surface: #0e111a;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border-c: var(--border-c);
+  --color-border-soft: var(--border-soft);
+  --color-border-hover: var(--border-hover);
+  --color-media-surface: var(--media-surface);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-dim: var(--text-dim);
+  --color-blue: var(--blue);
+  --color-blue-soft: var(--blue-soft);
+  --color-violet: var(--violet);
+  --color-violet-soft: var(--violet-soft);
+  --color-green: var(--green);
+  --color-green-soft: var(--green-soft);
+  --color-teal: var(--teal);
+  --color-teal-soft: var(--teal-soft);
+  --color-amber: var(--amber);
+
+  --font-sans: var(--font-inter);
+  --font-logo: var(--font-space-grotesk);
+  --font-mono: var(--font-plex-mono);
+  --font-code: var(--font-jetbrains-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans), sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: var(--violet);
+  color: #fff;
+}
+
+@keyframes orbit-breathe {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+.orbit-node {
+  animation: orbit-breathe 4.5s ease-in-out infinite;
+}
+
+.orbit-node-lit {
+  border-color: var(--blue) !important;
+  box-shadow: 0 0 18px rgba(77, 127, 255, 0.35);
+}
+
+.orbit-line-lit {
+  stroke: var(--blue) !important;
+  opacity: 0.9 !important;
+  stroke-width: 1.6px !important;
+}
+
+/* ── Reader: subtle custom scrollbar ── */
+.reader-scrollbar::-webkit-scrollbar { width: 3px; }
+.reader-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.reader-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--border-c);
+  border-radius: 3px;
+}
+.reader-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+.reader-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-c) transparent;
+}
+
+/* ── Reader: hide horizontal scrollbar on mobile section rail ── */
+.section-rail::-webkit-scrollbar { display: none; }
+.section-rail { scrollbar-width: none; }
+
+/* ── Globe Section: Typography colors ── */
+.globe-text {
+  color: var(--text);
+}
+[data-theme="light"] .globe-text {
+  color: #4b5563;
+}
+
+.globe-text-muted {
+  color: var(--text-dim);
+}
+[data-theme="light"] .globe-text-muted {
+  color: #374151;
+}
+
+/* ── Globe Marquee: Continuous Left-to-Right Conveyor Loop ── */
+@keyframes chain-marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.chain-marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: chain-marquee-right 22s linear infinite;
+  will-change: transform;
+}
