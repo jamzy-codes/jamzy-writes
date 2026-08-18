@@ -46,7 +46,7 @@ const CHANNELS = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-14 sm:py-16">
+    <section id="contact" className="pt-8 pb-14 sm:py-16">
       <div className="max-w-[1240px] mx-auto px-6">
         <motion.div
           className="relative border border-violet bg-surface rounded-2xl p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] items-center gap-5 min-w-0"

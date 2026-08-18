@@ -45,7 +45,7 @@ const STATS = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-14 sm:py-16">
+    <section id="about" className="pt-8 pb-14 sm:py-16">
       <div className="max-w-[1240px] mx-auto px-6">
         <Reveal className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-12 items-center mb-11">
           <div>

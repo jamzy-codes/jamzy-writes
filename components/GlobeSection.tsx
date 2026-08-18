@@ -29,9 +29,9 @@ export default function GlobeSection() {
     <section
       aria-label="Protocols documented across Web3"
       className="relative w-full overflow-hidden"
-      style={{ backgroundColor: theme === "light" ? "#f7f8fb" : "#010211" }}
+      style={{ backgroundColor: theme === "light" ? "#FEFEFE" : "#010211" }}
     >
-      <div className="relative w-full">
+      <div className="relative w-full pt-4">
         {/* Original globe asset, full viewport width, natural aspect ratio (no crop, glow intact) */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

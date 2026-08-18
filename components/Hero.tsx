@@ -46,7 +46,7 @@ const STATS = [
 
 export default function Hero() {
   return (
-    <header className="pt-11 sm:pt-[72px]">
+    <header className="pt-11 sm:pt-[72px] pb-2">
       <div className="max-w-[1240px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div>
           <div className="flex items-center gap-2 font-mono text-xs tracking-[0.1em] uppercase text-blue">
